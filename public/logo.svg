@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 48" fill="none">
+  <!-- Maison picto -->
+  <rect width="48" height="48" rx="10" fill="hsl(213, 72%, 28%)"/>
+  <path d="M24 8 L8 20 L8 40 L18 40 L18 29 L30 29 L30 40 L40 40 L40 20 Z" fill="none" stroke="hsl(38, 52%, 72%)" stroke-width="2.5" stroke-linejoin="round"/>
+  <rect x="20" y="30" width="8" height="10" rx="1" fill="hsl(38, 52%, 72%)"/>
+  <circle cx="24" cy="8" r="2.5" fill="hsl(38, 52%, 72%)"/>
+  <!-- Texte -->
+  <text x="56" y="20" font-family="Georgia, serif" font-size="10" font-weight="700" fill="hsl(213, 72%, 28%)">Agence Albert 1er</text>
+  <text x="56" y="34" font-family="Georgia, serif" font-size="9" font-weight="400" fill="hsl(38, 52%, 44%)" letter-spacing="0.5">ANTIBES IMMOBILIER</text>
+</svg>

@@ -1,115 +1,132 @@
-# Brief de génération de site (niche-starter)
+## Description
+## Agence Antibes Albert 1er - Site Immobilier Spécialisé
 
-Ce fichier est le brief unique à remplir avant d'envoyer le projet à l'IA.
-L'agent doit lire d'abord `CLAUDE.md`, puis ce fichier.
+Ce site se positionne comme une référence locale pour l'immobilier à Antibes, offrant une expertise complète sur l'achat, la location, la vente et l'aménagement de biens immobiliers dans cette ville prisée de la Côte d'Azur. Le site vise à générer du trafic qualifié en proposant des guides pratiques, des conseils d'experts et des comparatifs détaillés pour accompagner les particuliers dans leurs projets immobiliers.
 
----
+Le contenu se structure autour de guides complets (comment choisir un appartement, évaluer une maison, négocier un prix), de conseils techniques (inspection des fenêtres, détection de défauts, valorisation d'un bien) et d'informations locales spécifiques à Antibes. L'objectif est de devenir la ressource incontournable pour quiconque souhaite investir, acheter ou vendre dans l'immobilier antibois, tout en générant des leads qualifiés pour les services d'accompagnement immobilier.
 
-## 1) Infos projet
+## Prompt IA
+Tu es un assistant de développement full-stack ET designer UI/UX chargé de configurer et d'adapter un template Next.js pour un nouveau site de contenu spécialisé dans l'immobilier à Antibes.
 
-- `site_name`:
-- `site_domain`:
-- `site_url`:
-- `default_locale`:
-- `site_id` (UUID Supabase):
-- `tier` (`tier1` / `tier2`):
+⚠️ **IMPORTANT - Design Unique Obligatoire** :
+- Chaque site doit avoir un design **COMPLÈTEMENT DIFFÉRENT**
+- **JAMAIS** copier-coller des couleurs d'exemples
+- **TOUJOURS** créer une palette basée sur l'univers émotionnel de la thématique
+- Suivre le workflow : ANALYSE → DESIGN SYSTEM → ARCHITECTURE → DÉVELOPPEMENT
 
-## 2) Positionnement éditorial
+## 0. Contexte du projet
+- Nom du projet : Agence Antibes Albert 1er
+- Domaine : agenceantibesalbert1er.com
+- Type de site : Money site - génération de trafic et leads immobilier
+- Thématiques : Immobilier, Maison, Antibes, Côte d'Azur
+- Objectif business : Générer du trafic SEO qualifié et des leads pour services immobiliers
+- Audience cible : Particuliers cherchant à acheter, vendre ou louer à Antibes
 
-- Thématique:
-- Audience cible:
-- Objectif business:
-- Ton éditorial:
-- Angles à privilégier:
-- Angles interdits:
+## 1. Identité visuelle & Design System (PHASE CRITIQUE)
 
-## 3) Arborescence souhaitée
+⚠️ **À FAIRE EN PREMIER, AVANT TOUT CODE**
 
-- Pages de navigation (hors blog):
-- Sections homepage attendues:
-- CTA principal:
-- CTA secondaire:
+### Univers visuel à créer
+- **5 adjectifs** décrivant l'ambiance du site : Élégant, Confiant, Méditerranéen, Professionnel, Chaleureux
+- **Références visuelles mentales** : Architecture provençale, mer Méditerranée, pierre blonde d'Antibes, volets bleus, terrasses ensoleillées, palmiers, port de plaisance
+- **Émotions à évoquer** chez le visiteur : Confiance dans l'expertise, sérénité de l'investissement, prestige de la Riviera, sécurité de l'accompagnement
 
-## 4) Contraintes SEO
+### Images pré-générées - À TÉLÉCHARGER ET INTÉGRER
 
-- Requêtes principales:
-- Entités importantes:
-- Concurrents de référence:
-- Règles de maillage interne spécifiques:
-- URLs legacy à rediriger (si applicable):
-  - Si l'URL contient des caractères encodés (`%C3%A9`, etc.), la décoder d'abord puis slugifier proprement (ne jamais produire des slugs de type `c3a9`/`c3a8`).
+Les images suivantes ont été générées et sont disponibles sur le bucket R2 :
 
-## 5) Direction artistique
+**Page d'accueil :**
+- Hero principal : https://pub-3c1bead77fc84e5d93e229fe1a5fb51f.r2.dev/agenceantibesalbert1er-com-home-hero-antibes-luxury.jpeg
+- Section expertise : https://pub-3c1bead77fc84e5d93e229fe1a5fb51f.r2.dev/agenceantibesalbert1er-com-home-expertise-consultation.jpeg
+- Section quartiers : https://pub-3c1bead77fc84e5d93e229fe1a5fb51f.r2.dev/agenceantibesalbert1er-com-home-quartiers-vieille-ville.jpeg
+- Section services : https://pub-3c1bead77fc84e5d93e229fe1a5fb51f.r2.dev/agenceantibesalbert1er-com-home-services-evaluation.jpeg
+- Galerie appartements : https://pub-3c1bead77fc84e5d93e229fe1a5fb51f.r2.dev/agenceantibesalbert1er-com-home-gallery-appartement-moderne.jpeg
+- Galerie villas : https://pub-3c1bead77fc84e5d93e229fe1a5fb51f.r2.dev/agenceantibesalbert1er-com-home-gallery-villa-luxe.jpeg
 
-- Univers visuel:
-- Inspirations:
-- Couleurs souhaitées / évitées:
-- Style typographique:
-- Niveau d'animation:
-- Niveau de sobriété (1-10):
+**Pages secondaires :**
+- Page À propos : https://pub-3c1bead77fc84e5d93e229fe1a5fb51f.r2.dev/agenceantibesalbert1er-com-about-hero-equipe.jpeg
+- Page Contact : https://pub-3c1bead77fc84e5d93e229fe1a5fb51f.r2.dev/agenceantibesalbert1er-com-contact-hero-bureau.jpeg
 
-## 6) Assets (R2 / médias)
+**IMPORTANT** : Ces images DOIVENT être téléchargées depuis les URLs ci-dessus et intégrées dans le projet selon leurs chemins locaux respectifs.
 
-- Bucket/source:
-- Liste images hero:
-- Liste images sections:
-- Liste images guides/blog:
-- Contraintes de ratio/poids:
+### Palette de couleurs
+⚠️ **NE PAS proposer de codes HEX directement**
 
-## 7) Contraintes techniques
+À partir de l'univers visuel ci-dessus, l'agent développeur devra :
+1. Identifier les couleurs naturellement associées à la Côte d'Azur et l'immobilier de prestige
+2. Créer une palette UNIQUE avec :
+   - Couleur principale (primary) : Inspirée du bleu méditerranéen profond
+   - Couleur secondaire (secondary) : Inspirée de la pierre blonde d'Antibes
+   - Couleur d'accent (accent) : Inspirée des tuiles provençales
+   - Couleur de fond (background) : Blanc cassé méditerranéen
+   - Variante hover : Versions plus sombres des couleurs principales
+3. Assurer un contraste suffisant pour l'accessibilité
 
-- Le code doit respecter strictement les règles de `CLAUDE.md`.
-- Ne pas modifier les fichiers Core interdits.
-- Pas de `select("*")` ajouté.
-- Pas de faux articles.
-- Aucune page 404.
-- Toute page additionnelle liée (outil, carte, simulateur, etc.) doit être implémentée et réellement remplie.
-- Si une page n'existe pas, aucun lien ne doit pointer vers elle.
-- Tout lien vers le même domaine doit être traité comme lien interne dofollow.
-- Les redirections legacy doivent pointer vers des slugs décodés/normalisés (jamais vers des slugs encodés type `c3a9`).
-- `npm run build` doit passer.
+### Typographie
+- Google Font recommandée : **Libre Baskerville** pour les titres (élégance classique)
+- Google Font secondaire : **Inter** pour le corps de texte (lisibilité moderne)
+- Style : Mélange entre tradition provençale et modernité professionnelle
 
-## 8) Données légales à injecter
+## 2. SEO & métadonnées
+- **Titre SEO principal** pour la home : "Agence Immobilière Antibes | Achat, Vente, Location Albert 1er"
+- **Méta-description principale** pour la home : "Expert immobilier à Antibes depuis Albert 1er. Guides complets pour acheter, vendre ou louer. Conseils pro, évaluation gratuite, accompagnement personnalisé."
+- **Open Graph title** : "Agence Antibes Albert 1er - Votre Expert Immobilier Local"
+- **Open Graph description** : "Découvrez nos guides immobiliers, conseils d'experts et services d'accompagnement pour vos projets à Antibes."
 
-- Mentions légales (éditeur):
-- Contact public:
-- DPO/contact RGPD:
-- Hébergeur:
+## 3. Rôle du template
+- Le projet part d'un template Next.js existant
+- Fichiers à mettre à jour :
+  - `config/site.ts` (name, description, domain, navigation)
+  - `app/globals.css` (créer la palette UNIQUE selon méthodologie section 1)
+  - contenus de démo dans `content/data/*` et MDX
+  - configuration blog Supabase (`SITE_DOMAIN`, routes `/guides/*`, `/conseils/*`)
 
----
+## 4. Contenu & structure à mettre en place
+- Types de contenus à garder : blog/guides, comparatifs, pages de services, pages quartiers
+- **Sections obligatoires sur la page d'accueil** (/) :
+  - Hero ("Votre Expert Immobilier à Antibes", sous-titre valorisant l'expertise locale, CTA "Estimation gratuite")
+  - Section "Notre Expertise" (présentation des services : achat, vente, location, conseil)
+  - Section "Quartiers d'Antibes" (cap d'Antibes, vieille ville, Sophia Antipolis, Juan-les-Pins)
+  - Section "Nos Services" (évaluation, visite conseil, négociation, accompagnement juridique)
+  - Galerie de biens (appartements et villas récentes)
+  - Section témoignages clients
+  - Bloc de confiance (années d'expérience, transactions réalisées)
+- Pages importantes : `/guides/*` (guides d'achat/vente), `/quartiers/*`, `/services/*`
+- Clusters thématiques : Guides d'achat, Guides de vente, Conseils rénovation, Quartiers Antibes, Investissement locatif
 
-## 9) Prompt prêt à envoyer à l'IA
+## 5. Consignes éditoriales
+- Ton à respecter : Professionnel mais accessible, expert sans être jargonneux, rassurant
+- Types d'articles attendus :
+  - Guides pratiques ("Comment choisir un appartement à Antibes")
+  - Conseils techniques ("Repérer les défauts lors d'une visite")
+  - Analyses de quartiers ("Vivre au Cap d'Antibes : avantages et prix")
+  - Comparatifs ("Appartement vs Villa : que choisir à Antibes ?")
+  - Conseils valorisation ("10 astuces pour vendre plus cher")
+- Contraintes à éviter : Promesses irréalistes sur les prix, jargon technique non expliqué, généralités sans valeur ajoutée
 
-Copie/colle ce prompt dans ton agent (Claude/Codex/Gemini) en étant dans ce repo:
+## 6. Navigation et structure
+- Menu principal : Accueil, Acheter, Vendre, Louer, Guides, Quartiers, Contact
+- Sous-menus :
+  - Acheter : Appartements, Villas, Guides d'achat, Financement
+  - Vendre : Estimation, Conseils vente, Valorisation, Guides vendeur
+  - Guides : Inspection visite, Négociation, Rénovation, Investissement
+- Footer : Liens rapides, quartiers, mentions légales, contact
 
-```text
-Tu es un ingénieur Next.js senior + designer UI/UX.
-Tu travailles dans un projet basé sur niche-starter.
+## 7. Checklist technique
+- Configuration `.env` (clés Supabase, SITE_DOMAIN="agenceantibesalbert1er.com", BLOG_API_SECRET)
+- Mise à jour `config/site.ts` avec les bonnes informations
+- **Création de la palette UNIQUE** dans `app/globals.css` selon méthodologie
+- **Téléchargement et intégration des images** depuis les URLs R2 fournies
+- Logos personnalisés (`/public/logo.svg`, `/app/icon.svg`)
+- Intégration blog Supabase (filtrage par domaine)
+- Configuration formulaires de contact
+- Vérifier `npm run lint` et `npm run build`
 
-Ordre obligatoire:
-1) Lire CLAUDE.md
-2) Lire instructions.md
-3) Implémenter le site complet en respectant strictement ces deux fichiers.
-
-Contraintes non négociables:
-- Zéro 404
-- Zéro placeholder
-- Aucune modification des fichiers Core interdits
-- Blog 100% Supabase (aucun faux article)
-- ISR egress-safe (revalidate conforme)
-- Toute page additionnelle liée doit exister et être remplie (sinon supprimer le lien)
-- Tout lien du même domaine doit être interne et dofollow
-- Les redirections legacy doivent utiliser des slugs décodés/normalisés (pas de `c3a9`, `c3a8`, etc.)
-- npm run build sans erreur
-
-Action attendue:
-- Créer/modifier les fichiers autorisés
-- Produire un design distinctif adapté à la thématique
-- Remplir toutes les pages obligatoires avec contenu cohérent
-- Utiliser les assets fournis dans instructions.md
-
-À la fin:
-- Exécuter npm run build
-- Fournir la liste des fichiers modifiés
-- Expliquer brièvement les choix design et SEO effectués
-```
+## 8. Anti-patterns à éviter
+❌ Commencer à coder avant d'avoir créé le design system
+❌ Copier-coller des couleurs d'un exemple existant
+❌ Utiliser les mêmes polices que d'autres sites
+❌ Créer un design "générique"
+❌ Laisser des placeholders de couleurs dans le code final
+❌ Négliger l'aspect local et méditerranéen du design
+❌ Oublier de télécharger et intégrer les images pré-générées

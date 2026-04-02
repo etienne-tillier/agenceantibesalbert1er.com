@@ -65,6 +65,7 @@ function normalizePost(post: any): BlogPost {
     };
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function parseTranslations(translations: unknown): Record<string, any> {
     if (!translations) return {};
     if (typeof translations === "string") {
@@ -75,6 +76,7 @@ function parseTranslations(translations: unknown): Record<string, any> {
         }
     }
     if (typeof translations === "object") {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return translations as Record<string, any>;
     }
     return {};
@@ -93,7 +95,9 @@ function matchesSearch(post: BlogPost, rawSearchTerm?: string | null): boolean {
         post.seo_title,
         post.meta_description,
         post.excerpt,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...((post.categories || []).flatMap((category: any) => [category?.slug, category?.label])),
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...Object.values(translations).flatMap((translation: any) => [
             translation?.slug,
             translation?.h1,
@@ -462,6 +466,7 @@ export async function getPostTranslations(post: BlogPost) {
         allTranslations[post.default_locale] = { slug: post.slug };
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Object.entries(translations).forEach(([locale, translation]: [string, any]) => {
         if (translation?.status === "published" && translation?.slug) {
             allTranslations[locale] = { slug: translation.slug };

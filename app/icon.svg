@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Fond carré arrondi bleu méditerranéen -->
+  <rect width="64" height="64" rx="14" fill="hsl(213, 72%, 28%)"/>
+  <!-- Maison stylisée -->
+  <path d="M32 10 L10 28 L10 54 L25 54 L25 38 L39 38 L39 54 L54 54 L54 28 Z" fill="none" stroke="hsl(38, 52%, 72%)" stroke-width="3.5" stroke-linejoin="round"/>
+  <!-- Porte -->
+  <rect x="27" y="40" width="10" height="14" rx="1" fill="hsl(38, 52%, 72%)" opacity="0.9"/>
+  <!-- Fenêtre gauche -->
+  <rect x="14" y="35" width="8" height="8" rx="1" fill="none" stroke="hsl(38, 52%, 72%)" stroke-width="2"/>
+  <!-- Fenêtre droite -->
+  <rect x="42" y="35" width="8" height="8" rx="1" fill="none" stroke="hsl(38, 52%, 72%)" stroke-width="2"/>
+  <!-- Faîtage / étoile méditerranéenne -->
+  <circle cx="32" cy="10" r="3" fill="hsl(38, 52%, 72%)"/>
+</svg>
