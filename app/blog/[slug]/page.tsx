@@ -21,11 +21,39 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getBlogPostBySlug(slug);
   if (!post) return { title: "Article introuvable" };
 
+  const normalizeLocale = (value: string) => value.toLowerCase().split("-")[0];
+  const defaultLocale = normalizeLocale(post.default_locale || "fr");
+  const languages: Record<string, string> = {
+    [defaultLocale]: `${siteConfig.url}/blog/${post.slug}`,
+  };
+
+  try {
+    const translationsRaw = post.translations;
+    const translations =
+      typeof translationsRaw === "string"
+        ? JSON.parse(translationsRaw)
+        : (translationsRaw || {});
+
+    if (translations && typeof translations === "object") {
+      Object.entries(translations).forEach(([dbLocale, translation]) => {
+        if (!translation || typeof translation !== "object") return;
+        const translatedSlug = (translation as { slug?: unknown }).slug;
+        if (typeof translatedSlug !== "string" || !translatedSlug) return;
+        languages[normalizeLocale(dbLocale)] = `${siteConfig.url}/blog/${translatedSlug}`;
+      });
+    }
+  } catch {
+    // noop
+  }
+
+  languages["x-default"] = languages[defaultLocale] || `${siteConfig.url}/blog/${post.slug}`;
+
   return {
     title: post.seo_title || post.h1,
     description: post.meta_description || post.excerpt,
     alternates: {
-      canonical: `${siteConfig.url}/blog/${post.slug}`,
+      canonical: `${siteConfig.url}/blog/${slug}`,
+      languages,
     },
     openGraph: {
       title: post.seo_title || post.h1,
